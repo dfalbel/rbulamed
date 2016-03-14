@@ -1,0 +1,36 @@
+---
+output:
+  md_document:
+    variant: markdown_github
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+# rbulamed
+
+Baixar as bulas de diversos remédios que estão disponíveis no site http://www.medicinanet.com.br
+
+# Instalação
+
+Para instalar o pacote use:
+
+```{r, eval=FALSE}
+devtools::install_github("dfalbel/rbulamed")
+```
+
+# Uso simples
+
+```{r, eval = F}
+library(rbulamed)
+lst_remedios <- lista_todos_remedios()
+bulas <- texto_bulas(lst_remedios$link)
+```
+
