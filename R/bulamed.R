@@ -52,7 +52,8 @@ texto_bula <- function(url){
   texto <- p %>% 
     httr::content() %>%
     rvest::html_nodes("#texto") %>%
-    rvest::html_text()
+    rvest::html_text() %>%
+    paste(collapse = " ")
   return(texto)
 }
 
@@ -60,7 +61,7 @@ texto_bula <- function(url){
 #'
 #' @rdname textobula
 #' @export
-texto_bulas <- function(url, time = 0.5, progress = T){
+texto_bulas <- function(url, time = 0.25, progress = T){
   progress <- ifelse(progress, "text", "none")
   plyr::laply(url, function(x) {
     text <- texto_bula(x)
